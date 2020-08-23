@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    height: 50px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__create-user-button {
+        background-color: lightblue;
+        border: 1px solid gray;
+        height: 35px;
+    }
+}
+
+.users-list {
+    width: 70%;
+    margin-left: 30%;
+    margin-top: 20px;
+    height: calc(100vh - 120px);
+
+    &__wrapper {
+        display: flex;
+        height: 30px;
+        background-color: lightcyan;
+        margin-top: 10px;
+        width: 55%;
+        line-height: 30px;
+        padding-left: 10px;
+        border: 1px solid grey;
+        align-items: center;
+        position: relative;
+    }
+
+    &__edit {
+        position: absolute;
+        right: 35px;
+        background-color: antiquewhite;
+        height: 25px;
+        line-height: 25px;
+        cursor: pointer;
+        width: 110px;
+        padding-left: 5px;
+    }
+
+    &__delete {
+        border: 2px solid red;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        line-height: 16px;
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 5px;
+        cursor: pointer;
+    }
+}
+
+.footer {
+    height: 50px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
