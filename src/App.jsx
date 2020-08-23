@@ -21,20 +21,19 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
     }
 
     const prevPage = () => {
-        changeCurrentPage(currentPage - 1)
+        changeCurrentPage(+currentPage - 1)
     }
 
     const nextPage = () => {
-        changeCurrentPage(currentPage + 1)
+        changeCurrentPage(+currentPage + 1)
     }
 
     const spliceUsersList = () => {
-        console.log(usersList.usersList.usersList.slice(currentPage, 5))
+        console.log(currentPage)
         return usersList.usersList.usersList.slice(currentPage, 5)
     }
 
     return (
-        return (
         <>
             <header className="header">
                 <button
