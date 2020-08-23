@@ -29,10 +29,12 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
     }
 
     const spliceUsersList = () => {
-        return usersList.usersList.usersList.splice(currentPage, 5)
+        console.log(usersList.usersList.usersList.slice(currentPage, 5))
+        return usersList.usersList.usersList.slice(currentPage, 5)
     }
 
     return (
+        return (
         <>
             <header className="header">
                 <button
@@ -41,7 +43,7 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
                 >Добавить нового пользователя</button>
             </header>
             <div className="users-list">
-                {Object.keys(usersList.usersList).length && usersList.usersList.usersList.map(elem => {
+                {Object.keys(usersList.usersList).length && spliceUsersList().map(elem => {
                     return (
                         <div className="users-list__wrapper" key={elem.id}>
                             <div className="users-list__elem">
@@ -65,8 +67,8 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
                     disabled={currentPage < 1}
                 >{'<'}</button>
                 <button
+                    className="footer__button"
                     onClick={nextPage}
-                    disabled={currentPage >= usersList.length}
                 >{'>'}</button>
             </footer>
             {formIsOpened.opened &&

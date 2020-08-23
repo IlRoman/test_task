@@ -68,4 +68,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    &__button {
+        background-color: green;
+        color: red;
+    }
 }
