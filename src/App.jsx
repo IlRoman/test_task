@@ -29,7 +29,7 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
     }
 
     const spliceUsersList = () => {
-        let x = usersList.usersList.usersList.splice(currentPage * 5, 5);
+        let x = usersList.usersList.usersList.slice(currentPage * 5, 5);
         console.log(currentPage);
         console.log(x);
         return x
