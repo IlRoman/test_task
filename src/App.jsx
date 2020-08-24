@@ -62,9 +62,9 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
             </div>
             <footer className="footer">
                 <button
+                    className="footer__button"
                     onClick={prevPage}
                     disabled={currentPage < 1}
-                    className="footer__button"
                 >{'<'}</button>
                 <button
                     className="footer__button"
