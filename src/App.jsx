@@ -6,7 +6,7 @@ import Form from './components/Form';
 const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser }) => {
     const [formIsOpened, onChangeFormIsOpened] = useState({ opened: false, headerText: '' })
     const [clickedElement, changeClickedElement] = useState('');
-    const [currentPage, changeCurrentPage] = useState('');
+    const [currentPage, changeCurrentPage] = useState(0);
 
     useEffect(() => {
         getUsersList();
@@ -29,8 +29,10 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
     }
 
     const spliceUsersList = () => {
-        console.log(currentPage)
-        return usersList.usersList.usersList.slice(currentPage, 5)
+        let x = usersList.usersList.usersList.splice(currentPage * 5, 5);
+        console.log(currentPage);
+        console.log(x);
+        return x
     }
 
     return (
@@ -68,6 +70,7 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
                 <button
                     className="footer__button"
                     onClick={nextPage}
+                    disabled={currentPage > 1}
                 >{'>'}</button>
             </footer>
             {formIsOpened.opened &&
