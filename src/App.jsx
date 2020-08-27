@@ -20,14 +20,6 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
         })
     }
 
-    const prevPage = () => {
-        changeCurrentPage(+currentPage - 1)
-    }
-
-    const nextPage = () => {
-        changeCurrentPage(+currentPage + 1)
-    }
-
     const spliceUsersList = () => {
         let x = usersList.usersList.usersList.slice(currentPage * 5, currentPage * 5 + 5);
         return x
@@ -63,23 +55,29 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
             <footer className="footer">
                 <button
                     className="footer__button"
-                    onClick={prevPage}
+                    onClick={() => changeCurrentPage(+currentPage - 1)}
                     disabled={currentPage < 1}
                 >{'<'}</button>
                 <button
                     className="footer__button"
-                    onClick={nextPage}
-                    disabled={currentPage > 1}
+                    onClick={() => changeCurrentPage(+currentPage + 1)}
+                    disabled={
+                        currentPage
+                            ? currentPage * 5 >= usersList.usersList.usersList.length
+                            : ''
+                    }
                 >{'>'}</button>
             </footer>
-            {formIsOpened.opened &&
+            {
+                formIsOpened.opened &&
                 <Form
                     onCreateUser={onCreateUser}
                     onChangeUser={onChangeUser}
                     clickedElement={clickedElement}
                     headerText={formIsOpened.headerText}
                     cancelForm={openForm}
-                />}
+                />
+            }
         </>
     )
 }
