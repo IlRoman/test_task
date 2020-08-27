@@ -63,7 +63,7 @@ const App = ({ usersList, onCreateUser, getUsersList, onDeleteUser, onChangeUser
                     onClick={() => changeCurrentPage(+currentPage + 1)}
                     disabled={
                         currentPage
-                            ? currentPage * 5 >= usersList.usersList.usersList.length
+                            ? currentPage * 5 + 5 > usersList.usersList.usersList.length
                             : ''
                     }
                 >{'>'}</button>
